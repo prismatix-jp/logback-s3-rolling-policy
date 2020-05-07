@@ -87,6 +87,7 @@ public class AmazonS3ClientImpl implements RollingPolicyShutdownListener {
                 AWSCredentials cred = new BasicAWSCredentials( getAwsAccessKey(), getAwsSecretKey() );
                 s3Client = AmazonS3ClientBuilder.standard()
                         .withCredentials(new AWSStaticCredentialsProvider(cred))
+                        .enableForceGlobalBucketAccess()
                         .build();
             }
         }
